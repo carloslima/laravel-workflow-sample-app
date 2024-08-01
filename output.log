@@ -1,0 +1,164 @@
+> docker compose up
+(.. wait until migrations run ..)
+> docker compose exec -it laravel.test ./artisan lw:foo
+
+
+worker-2        |   2024-08-01 18:49:51 App\Workflows\Simple\FooWorkflow ............... RUNNING
+worker-2        | string(40) "WORKFLOW: Start FooWorkflow#execute(123)"
+worker-2        | array(1) {
+worker-2        |   ["activities"]=>
+worker-2        |   object(Illuminate\Support\Collection)#692 (2) {
+worker-2        |     ["items":protected]=>
+worker-2        |     array(6) {
+worker-2        |       [0]=>
+worker-2        |       object(React\Promise\Promise)#695 (5) {
+worker-2        |         ["canceller":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["result":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["handlers":"React\Promise\Promise":private]=>
+worker-2        |         array(0) {
+worker-2        |         }
+worker-2        |         ["requiredCancelRequests":"React\Promise\Promise":private]=>
+worker-2        |         int(0)
+worker-2        |         ["cancelled":"React\Promise\Promise":private]=>
+worker-2        |         bool(false)
+worker-2        |       }
+worker-2        |       [1]=>
+worker-2        |       object(React\Promise\Promise)#700 (5) {
+worker-2        |         ["canceller":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["result":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["handlers":"React\Promise\Promise":private]=>
+worker-2        |         array(0) {
+worker-2        |         }
+worker-2        |         ["requiredCancelRequests":"React\Promise\Promise":private]=>
+worker-2        |         int(0)
+worker-2        |         ["cancelled":"React\Promise\Promise":private]=>
+worker-2        |         bool(false)
+worker-2        |       }
+worker-2        |       [2]=>
+worker-2        |       object(React\Promise\Promise)#670 (5) {
+worker-2        |         ["canceller":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["result":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["handlers":"React\Promise\Promise":private]=>
+worker-2        |         array(0) {
+worker-2        |         }
+worker-2        |         ["requiredCancelRequests":"React\Promise\Promise":private]=>
+worker-2        |         int(0)
+worker-2        |         ["cancelled":"React\Promise\Promise":private]=>
+worker-2        |         bool(false)
+worker-2        |       }
+worker-2        |       [3]=>
+worker-2        |       object(React\Promise\Promise)#740 (5) {
+worker-2        |         ["canceller":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["result":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["handlers":"React\Promise\Promise":private]=>
+worker-2        |         array(0) {
+worker-2        |         }
+worker-2        |         ["requiredCancelRequests":"React\Promise\Promise":private]=>
+worker-2        |         int(0)
+worker-2        |         ["cancelled":"React\Promise\Promise":private]=>
+worker-2        |         bool(false)
+worker-2        |       }
+worker-2        |       [4]=>
+worker-2        |       object(React\Promise\Promise)#742 (5) {
+worker-2        |         ["canceller":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["result":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["handlers":"React\Promise\Promise":private]=>
+worker-2        |         array(0) {
+worker-2        |         }
+worker-2        |         ["requiredCancelRequests":"React\Promise\Promise":private]=>
+worker-2        |         int(0)
+worker-2        |         ["cancelled":"React\Promise\Promise":private]=>
+worker-2        |         bool(false)
+worker-2        |       }
+worker-2        |       [5]=>
+worker-2        |       object(React\Promise\Promise)#744 (5) {
+worker-2        |         ["canceller":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["result":"React\Promise\Promise":private]=>
+worker-2        |         NULL
+worker-2        |         ["handlers":"React\Promise\Promise":private]=>
+worker-2        |         array(0) {
+worker-2        |         }
+worker-2        |         ["requiredCancelRequests":"React\Promise\Promise":private]=>
+worker-2        |         int(0)
+worker-2        |         ["cancelled":"React\Promise\Promise":private]=>
+worker-2        |         bool(false)
+worker-2        |       }
+worker-2        |     }
+worker-2        |     ["escapeWhenCastingToString":protected]=>
+worker-2        |     bool(false)
+worker-2        |   }
+worker-2        | }
+worker-2        |   2024-08-01 18:49:51 App\Workflows\Simple\FooWorkflow .......... 60.94ms DONE
+worker-2        |   2024-08-01 18:49:51 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-2        | string(38) "ACTIVITY: Start BarActivity#execute(1)"
+worker-2        |   2024-08-01 18:49:52 App\Workflows\Simple\BarActivity ......... 552.09ms DONE
+worker-2        |   2024-08-01 18:49:52 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-2        | string(38) "ACTIVITY: Start BarActivity#execute(2)"
+worker-2        |   2024-08-01 18:49:52 App\Workflows\Simple\BarActivity ......... 534.45ms DONE
+worker-2        |   2024-08-01 18:49:52 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-2        | string(38) "ACTIVITY: Start BarActivity#execute(3)"
+worker-2        |   2024-08-01 18:49:53 App\Workflows\Simple\BarActivity ......... 528.17ms DONE
+worker-2        |   2024-08-01 18:49:53 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-2        | string(38) "ACTIVITY: Start BarActivity#execute(4)"
+worker-1        |   2024-08-01 18:49:53 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-1        | string(38) "ACTIVITY: Start BarActivity#execute(5)"
+worker-2        |   2024-08-01 18:49:53 App\Workflows\Simple\BarActivity ......... 529.36ms DONE
+worker-2        |   2024-08-01 18:49:53 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-2        | string(38) "ACTIVITY: Start BarActivity#execute(6)"
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\FooWorkflow ............... RUNNING
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\FooWorkflow .......... 36.94ms DONE
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ......... 559.37ms DONE
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity .......... 12.06ms DONE
+pgsql-1         | 2024-08-01 18:49:54.388 UTC [78] ERROR:  duplicate key value violates unique constraint "workflow_logs_stored_workflow_id_index_unique"
+pgsql-1         | 2024-08-01 18:49:54.388 UTC [78] DETAIL:  Key (stored_workflow_id, index)=(1, 2) already exists.
+pgsql-1         | 2024-08-01 18:49:54.388 UTC [78] STATEMENT:  insert into "workflow_logs" ("index", "now", "class", "result", "stored_workflow_id", "created_at") values ($1, $2, $3, $4, $5, $6) returning "id"
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ........... 4.14ms DONE
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\FooWorkflow ............... RUNNING
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\FooWorkflow ........... 6.06ms DONE
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+pgsql-1         | 2024-08-01 18:49:54.399 UTC [79] ERROR:  duplicate key value violates unique constraint "workflow_logs_stored_workflow_id_index_unique"
+pgsql-1         | 2024-08-01 18:49:54.399 UTC [79] DETAIL:  Key (stored_workflow_id, index)=(1, 3) already exists.
+pgsql-1         | 2024-08-01 18:49:54.399 UTC [79] STATEMENT:  insert into "workflow_logs" ("index", "now", "class", "result", "stored_workflow_id", "created_at") values ($1, $2, $3, $4, $5, $6) returning "id"
+pgsql-1         | 2024-08-01 18:49:54.399 UTC [78] ERROR:  duplicate key value violates unique constraint "workflow_logs_stored_workflow_id_index_unique"
+pgsql-1         | 2024-08-01 18:49:54.399 UTC [78] DETAIL:  Key (stored_workflow_id, index)=(1, 4) already exists.
+pgsql-1         | 2024-08-01 18:49:54.399 UTC [78] STATEMENT:  insert into "workflow_logs" ("index", "now", "class", "result", "stored_workflow_id", "created_at") values ($1, $2, $3, $4, $5, $6) returning "id"
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ........... 3.26ms DONE
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity .......... 12.99ms DONE
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+pgsql-1         | 2024-08-01 18:49:54.403 UTC [78] ERROR:  duplicate key value violates unique constraint "workflow_logs_stored_workflow_id_index_unique"
+pgsql-1         | 2024-08-01 18:49:54.403 UTC [78] DETAIL:  Key (stored_workflow_id, index)=(1, 1) already exists.
+pgsql-1         | 2024-08-01 18:49:54.403 UTC [78] STATEMENT:  insert into "workflow_logs" ("index", "now", "class", "result", "stored_workflow_id", "created_at") values ($1, $2, $3, $4, $5, $6) returning "id"
+pgsql-1         | 2024-08-01 18:49:54.405 UTC [79] ERROR:  duplicate key value violates unique constraint "workflow_logs_stored_workflow_id_index_unique"
+pgsql-1         | 2024-08-01 18:49:54.405 UTC [79] DETAIL:  Key (stored_workflow_id, index)=(1, 2) already exists.
+pgsql-1         | 2024-08-01 18:49:54.405 UTC [79] STATEMENT:  insert into "workflow_logs" ("index", "now", "class", "result", "stored_workflow_id", "created_at") values ($1, $2, $3, $4, $5, $6) returning "id"
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ........... 3.23ms DONE
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\FooWorkflow ............... RUNNING
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ........... 3.16ms DONE
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\FooWorkflow ........... 1.35ms DONE
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ............... RUNNING
+pgsql-1         | 2024-08-01 18:49:54.408 UTC [79] ERROR:  duplicate key value violates unique constraint "workflow_logs_stored_workflow_id_index_unique"
+pgsql-1         | 2024-08-01 18:49:54.408 UTC [79] DETAIL:  Key (stored_workflow_id, index)=(1, 4) already exists.
+pgsql-1         | 2024-08-01 18:49:54.408 UTC [79] STATEMENT:  insert into "workflow_logs" ("index", "now", "class", "result", "stored_workflow_id", "created_at") values ($1, $2, $3, $4, $5, $6) returning "id"
+pgsql-1         | 2024-08-01 18:49:54.409 UTC [78] ERROR:  duplicate key value violates unique constraint "workflow_logs_stored_workflow_id_index_unique"
+pgsql-1         | 2024-08-01 18:49:54.409 UTC [78] DETAIL:  Key (stored_workflow_id, index)=(1, 3) already exists.
+pgsql-1         | 2024-08-01 18:49:54.409 UTC [78] STATEMENT:  insert into "workflow_logs" ("index", "now", "class", "result", "stored_workflow_id", "created_at") values ($1, $2, $3, $4, $5, $6) returning "id"
+worker-3        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ........... 2.98ms DONE
+worker-1        |   2024-08-01 18:49:54 App\Workflows\Simple\BarActivity ........... 2.88ms DONE
+
+(... big flood of unique constraint violation continues ...)
